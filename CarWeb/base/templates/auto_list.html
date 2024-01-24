@@ -1,0 +1,33 @@
+{% extends 'main.html' %}
+
+{% block title %} Мои автомобили {% endblock %}
+
+{% block content %}
+<br><br><br><br>
+  <h1>Автомобили</h1>
+   <br>
+  {% if cars %}
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Brand</th>
+          <th>Model</th>
+          <th>Year</th>
+          <th>Color</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for car in cars %}
+        <tr>
+          <td>{{ car.brand }}</td>
+          <td>{{ car.model }}</td>
+          <td>{{ car.year }}</td>
+          <td>{{ car.color }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  {% else %}
+    <p>We don't have any records!</p>
+  {% endif %}
+{% endblock %}
